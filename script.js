@@ -8,10 +8,16 @@ function execute() {
     output.contentWindow.eval(jsCode);
 }
 
-document.querySelector("#html").addEventListener("keyup",execute);
-document.querySelector("#css").addEventListener("keyup",execute);
-document.querySelector("#js").addEventListener("keyup",execute);
 
+//eventlistenesers to automatically execute written code
+//runs on website open
+document.querySelector("#leftcol").addEventListener("keyup",execute);
+document.querySelector("#css").addEventListener("keyup",execute);
+document.querySelector("#rightcol").addEventListener("keyup",execute);
+
+execute();
+
+// for tab key behaviour
 document.addEventListener("keydown",function(event){
     // .which is deprecated also it returns diff value for a key in different browser
     if(event.key==='Tab'){

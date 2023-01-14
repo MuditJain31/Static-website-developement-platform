@@ -1,0 +1,92 @@
+:root{
+    --ht : calc(100vh - 50px);
+}
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+}
+
+header{
+    height:50px;
+    background-color: black;
+}
+
+header h1{
+    color: #F20F4B;
+    filter: brightness(130%);
+}
+
+.editor{
+    height: var(--ht);
+    display: flex;
+    flex-direction: column;
+}
+.codeArea{
+    /* height: calc(var(--ht)/2); */
+    width:100%;
+    display: grid;
+    grid-template-areas:
+    'html leftdragbar css rightdragbar js';
+
+	grid-template-rows: 1fr;
+    grid-template-columns: 1fr 9px 1fr 9px 1fr;
+    height: 50%;
+}
+
+textarea{ 
+    padding:6px 6px;
+    width: 100%;
+    text-align: left;
+    height: 100%;
+    background-color: #1d1e22;
+    color:white;
+    filter: brightness(90%);
+    resize: none;
+    font-size: 14px;
+    border: none;
+}
+
+#leftcol{
+
+    display: flex;
+    grid-area: html;
+    padding:0;
+    margin: 0;
+    overflow: auto;
+}
+
+#mid{
+    display: flex;
+    grid-area: css;
+    overflow: auto;
+}
+
+#rightcol{
+    display: flex;
+    grid-area: js;
+    overflow: auto;
+}
+
+#leftdragbar{
+    grid-area: leftdragbar;
+    background-color: black;
+    cursor: ew-resize;
+}
+
+#rightdragbar{
+    grid-area: rightdragbar;
+    background-color: black;
+    cursor: ew-resize;
+}
+
+
+iframe{
+    width: 100%;
+    height: 50%;
+}
