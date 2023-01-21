@@ -22,17 +22,17 @@ header h1{
     filter: brightness(130%);
 }
 
-.editor{
+#editor{
     height: var(--ht);
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
-.codeArea{
+#codeArea{
     /* height: calc(var(--ht)/2); */
     width:100%;
     display: grid;
-    grid-template-areas:
-    'html leftdragbar css rightdragbar js';
+    grid-template-areas:'html leftdragbar css rightdragbar js';
 
 	grid-template-rows: 1fr;
     grid-template-columns: 1fr 9px 1fr 9px 1fr;
@@ -49,28 +49,35 @@ textarea{
     filter: brightness(90%);
     resize: none;
     font-size: 14px;
+    line-height: 1.5em;
     border: none;
 }
 
 #leftcol{
-
+    border: none;
     display: flex;
-    grid-area: html;
     padding:0;
     margin: 0;
+    /* max-width: calc((100% - 9px*2)); */
+    /* grid-column: 1/2; */
     overflow: auto;
+    grid-area: html;
 }
 
 #mid{
+    border: none;
     display: flex;
-    grid-area: css;
     overflow: auto;
+    /* grid-column: 3/4; */
+    grid-area: css;
 }
 
 #rightcol{
+    border: none;
     display: flex;
-    grid-area: js;
     overflow: auto;
+    /* grid-column: 5/6; */
+    grid-area: js;
 }
 
 #leftdragbar{
@@ -79,6 +86,12 @@ textarea{
     cursor: ew-resize;
 }
 
+#verticalDrag{
+    width: 100%;
+    height: 9px;
+    background-color: black;
+    cursor: ns-resize;
+}
 #rightdragbar{
     grid-area: rightdragbar;
     background-color: black;
@@ -86,7 +99,29 @@ textarea{
 }
 
 
-iframe{
+#outputArea{
+    min-height: 50%;
     width: 100%;
-    height: 50%;
+    display:flex; margin:0; padding:0; resize:both; overflow:hidden;
+    flex-direction: column;
+}
+
+#outputArea > #output{
+    min-height: 100%;
+    min-width: 100%;
+    flex-grow:1; margin:0; padding:0; border:none ;
+}
+
+#leftdragbar:hover{
+    background-color: #06bbff;
+}
+#rightdragbar:hover{
+    background-color: #06bbff;
+}
+
+#leftdragbar:active{
+    background-color: #06bbff;
+}
+#rightdragbar:active{
+    background-color: #06bbff;
 }

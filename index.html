@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Code Editor</title>
 </head>
 <body>
     <header>
@@ -14,17 +14,21 @@
             <ul></ul>
         </div>
     </header>
-    <div class="editor">
-        <div class="codeArea" onmouseup="EndDrag()" onmousemove="OnDrag(event)">
+    <div id="editor">
+        <div id="codeArea" onmouseup="EndDrag()" onmousemove="OnDrag(event)">
             <div  id="leftcol"><textarea placeholder="Write your HTML here" id="html" spellcheck="false"></textarea></div>
-            <div id="leftdragbar" onmouseup="StopDrag()" onmousedown="StartLeftDrag()"></div>
+            <div id="leftdragbar" onmousedown="StartLeftDrag()"></div>
             <div id="mid"><textarea id="css" spellcheck="false" placeholder="Write your CSS here"></textarea></div>
-            <div id="rightdragbar" onmouseup="StopDrag()" onmousedown="StartRightDrag()"></div>
+            <div id="rightdragbar" onmousedown="StartRightDrag()"></div>
             <div id="rightcol"><textarea id="js" spellcheck="false" placeholder="Write your JavaScript here"></textarea></div>
         </div>
-        <iframe id="output"></iframe>
+        <!-- <div id="verticalDrag" onmousemove="verticalDrag(event)" onmousedown="StartVerticalDrag()"></div> -->
+        <div id="outputArea">
+                <iframe scrolling="yes" id="output"></iframe>
+        </div>
     </div>
     <script src="handler.js"></script>
     <script src="script.js"></script>
+
 </body>
 </html>
