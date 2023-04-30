@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Code Editor</title>
+</head>
+<body>
+    <header>
+        <h1>Code Editor</h1>
+        <div class="options">
+            <ul></ul>
+        </div>
+    </header>
+    <div id="editor" onmouseup="EndDrag()" onmousemove="verticalDrag(event)">
+        <div id="codeArea" onmouseup="EndDrag()" onmousemove="OnDrag(event)">
+            <div  id="leftcol"><textarea placeholder="Write your HTML here" id="html" spellcheck="false"></textarea></div>
+            <div id="leftdragbar" onmousedown="StartLeftDrag()"></div>
+            <div id="mid"><textarea id="css" spellcheck="false" placeholder="Write your CSS here"></textarea></div>
+            <div id="rightdragbar" onmousedown="StartRightDrag()"></div>
+            <div id="rightcol"><textarea id="js" spellcheck="false" placeholder="Write your JavaScript here"></textarea></div>
+        </div>
+        <div id="verticalDrag" onmousedown="StartVerticalDrag()"></div>
+        <div id="outputArea">
+                <iframe scrolling="yes" id="output"></iframe>
+        </div>
+    </div>
+    <script src="handler.js"></script>
+    <script type="module" src="script.js"></script>
+
+
+</body>
+</html>
